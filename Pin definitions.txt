@@ -1,0 +1,34 @@
+// Pin definitions
+const int irSensorPin = 8;      // D8 for IR sensor input (digital)
+const int buzzerPin   = 9;      // D9 for buzzer output
+const int relayPin    = 7;      // D7 for relay control
+
+void setup() {
+  pinMode(irSensorPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(relayPin, OUTPUT);
+
+  digitalWrite(buzzerPin, LOW);
+  digitalWrite(relayPin, LOW);
+
+  Serial.begin(9600);
+  Serial.println("Anti-Sleep Alarm System Initialized");
+}
+
+void loop() {
+  int irValue = digitalRead(irSensorPin);  // Reads HIGH or LOW
+
+  if (irValue == LOW) {
+    // No detection = drowsiness suspected
+    digitalWrite(buzzerPin, HIGH);
+    digitalWrite(relayPin, HIGH); // turn on motor via relay
+    Serial.println("WARNING: Drowsiness Detected!");
+  } else {
+    // Normal condition
+    digitalWrite(buzzerPin, LOW);
+    digitalWrite(relayPin, LOW);
+    Serial.println("Driver is alert");
+  }
+
+  delay(500); // Check every 0.5 seconds
+}
