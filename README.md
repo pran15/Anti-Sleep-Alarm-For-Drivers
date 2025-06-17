@@ -4,7 +4,7 @@ The Anti-Sleep Alarm for Drivers is a safety system designed to detect drowsines
 When the system detects that the driver is closing their eyes for more than a safe time threshold (indicating sleep or drowsiness), it triggers a buzzer or vibration motor to alert the driver immediately.
 
 Key Components:
-1.ATmega328P Microcontroller (Arduino Uno board).
+1.ATmega328P Microcontroller (Arduino Uno board).<br>
 2.IR Eye Blink Sensor / EYE Blink Detection Module.
 3.Buzzer (for alert).
 4.Power Supply (Battery or USB).
